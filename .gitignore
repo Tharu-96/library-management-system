@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+env/
+
+# Django
+db.sqlite3
+staticfiles/
+media/
+
+# Environment variables (NEVER push this)
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
