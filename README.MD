@@ -545,7 +545,7 @@ UPDATE books SET available_copies = available_copies + 1 WHERE book_id = %s;
 ---
 ### Screenshorts
 ### Login Page
-![Login Page](images/login page.png)
+![Login Page](images/login_page.png)
 
 ### Dashboard
 <img width="2530" height="1199" alt="Screenshot 2026-02-21 213139" src="https://github.com/user-attachments/assets/181be733-7771-4a81-9510-d859227fff59" />
