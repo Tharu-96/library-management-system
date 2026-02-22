@@ -545,7 +545,7 @@ UPDATE books SET available_copies = available_copies + 1 WHERE book_id = %s;
 ---
 ### Screenshorts
 ### Login Page
-<img width="2294" height="1137" alt="Screenshot 2026-02-21 213119" src="https://github.com/user-attachments/assets/32c7df09-3f39-49c7-82e7-555de0de9878" />
+![Login Page](images/login page.png)
 
 ### Dashboard
 <img width="2530" height="1199" alt="Screenshot 2026-02-21 213139" src="https://github.com/user-attachments/assets/181be733-7771-4a81-9510-d859227fff59" />
@@ -560,6 +560,7 @@ UPDATE books SET available_copies = available_copies + 1 WHERE book_id = %s;
 ### Issue/ Return 
 <img width="2490" height="1178" alt="Screenshot 2026-02-21 213234" src="https://github.com/user-attachments/assets/bf8dd2bb-4e5d-4c6c-a382-c55d1cdf1ed1" />
 
+![System Architecture](images/system_architecture.png)
 ---
 
 ## 11. Pages & Routes
@@ -673,8 +674,8 @@ python manage.py runserver
 Visit **http://127.0.0.1:8000** and log in with the default librarian account:
 
 ```
-Email:    arun123@gmail.com
-Password: arun123
+Email:    bipin123@gmail.com
+Password: bipin123
 ```
 
 > ⚠️ Change the default password immediately in production.
