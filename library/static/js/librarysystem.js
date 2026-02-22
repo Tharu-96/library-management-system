@@ -1,3 +1,6 @@
+// ================= BASE URL =================
+const BASE_URL = "";
+
 // ================= BASIC ELEMENTS =================
 const loginSection = document.getElementById("login-section");
 const app = document.getElementById("app");
@@ -31,7 +34,7 @@ const removeStudentBtn = document.querySelector(".btn-danger");
 const issueRollNo = document.getElementById("issueRollNo");
 const issueBookNo = document.getElementById("issueBookNo");
 const issueDateInput = document.getElementById("issueDate");
-const returnDateInput = document.getElementById("ReturnDate"); // ID matches HTML
+const returnDateInput = document.getElementById("ReturnDate");
 const issueBtn = document.getElementById("issueBtn");
 const returnBtn = document.getElementById("returnBtn");
 
@@ -53,22 +56,20 @@ const passwordField = document.querySelector("#login-section input[type='passwor
 
 if (togglePassword) {
     togglePassword.addEventListener("click", function () {
-        // Toggle the type attribute
         const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
         passwordField.setAttribute("type", type);
-        
-        // Toggle the Font Awesome icons
         this.classList.toggle("fa-eye");
         this.classList.toggle("fa-eye-slash");
     });
 }
+
 // ================= LOGIN =================
 loginBtn.addEventListener("click", async () => {
     const email = document.querySelector("#login-section input[type='text']").value;
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/login/", {
+        const response = await fetch(`${BASE_URL}/api/login/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
@@ -98,7 +99,7 @@ function logout() {
     loginSection.style.display = "flex";
     document.querySelector("#login-section input[type='text']").value = "";
     document.querySelector("#login-section input[type='password']").value = "";
-    passInput.setAttribute("type", "password");
+    passwordField.setAttribute("type", "password");
     if (togglePassword) {
         togglePassword.classList.add("fa-eye");
         togglePassword.classList.remove("fa-eye-slash");
@@ -122,7 +123,7 @@ document.getElementById("addBookBtn").addEventListener("click", async () => {
     }
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/add-book/", {
+        const response = await fetch(`${BASE_URL}/api/add-book/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -156,7 +157,7 @@ document.getElementById("bookSearchBtn").addEventListener("click", async () => {
     if (!bookNo) return showMessage("bookMessage", "Enter book number", "error");
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/search-book/?book_number=${bookNo}`);
+        const response = await fetch(`${BASE_URL}/api/search-book/?book_number=${bookNo}`);
         const data = await response.json();
 
         const resultBox = document.getElementById("bookSearchResult");
@@ -185,7 +186,7 @@ document.getElementById("addStudentBtn").addEventListener("click", async () => {
     }
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/add-student/", {
+        const response = await fetch(`${BASE_URL}/api/add-student/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -217,7 +218,7 @@ document.getElementById("studentSearchBtn").addEventListener("click", async () =
     if (!roll) return showMessage("studentSearchMessage", "Enter Roll No", "error");
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/search-student/?roll_no=${roll}`);
+        const response = await fetch(`${BASE_URL}/api/search-student/?roll_no=${roll}`);
         const data = await response.json();
 
         if (data.status === "success") {
@@ -240,13 +241,14 @@ document.getElementById("studentSearchBtn").addEventListener("click", async () =
         console.error(err);
     }
 });
+
 // ================= REMOVE STUDENT =================
 removeStudentBtn.addEventListener("click", async () => {
     const roll = selectedStudentRoll.value;
     if (!roll) return showMessage("studentSearchMessage", "No student selected", "error");
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/remove-student/", {
+        const response = await fetch(`${BASE_URL}/api/remove-student/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ roll_no: roll })
@@ -278,7 +280,7 @@ issueBtn.addEventListener("click", async () => {
         return showMessage("issueMessage", "All fields required", "error");
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/issue-book/", {
+        const response = await fetch(`${BASE_URL}/api/issue-book/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -315,7 +317,7 @@ returnBtn.addEventListener("click", async () => {
         return showMessage("issueMessage", "Enter Roll & Book No", "error");
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/return-book/", {
+        const response = await fetch(`${BASE_URL}/api/return-book/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ roll_no: roll, book_number: bookNo })
@@ -339,7 +341,7 @@ returnBtn.addEventListener("click", async () => {
 // ================= DASHBOARD =================
 async function loadDashboardStats() {
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/dashboard-stats/");
+        const response = await fetch(`${BASE_URL}/api/dashboard-stats/`);
         const data = await response.json();
 
         totalStudents.innerText = data.total_students || 0;
