@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.db import connection, transaction
+from datetime import date
 import json
 
 # ================== LIBRARIAN LOGIN ==================
@@ -284,7 +285,7 @@ def return_book(request):
                     # Update status
                     cursor.execute(
                         "UPDATE issued_book SET status='returned', return_date=%s WHERE issue_id=%s",
-                        [return_date or 'NOW()', issued[0]]
+                        [return_date or str(date.today()), issued[0]]
                     )
 
                     # Increase available copies
