@@ -4,18 +4,16 @@
 
 ### LMS — Academic Web Application
 
-*"Deployment link:https://library-management-system-m21x.onrender.com"*
+*" link:https://library-management-system-m21x.onrender.com "*
 
 
 
 ---
 
-### 👥 Team Members
+### 👥 Developed by:
 
 | Name | Roll No. |
 |------|----------|
-| Arun Raj Neupane | 080BCT006 |
-| Naresh Rasaili | 080BCT022 |
 | Bipin Tharu | 080BCT012 |
 
 </div>
@@ -48,7 +46,6 @@
 12. [Project Structure](#12-project-structure)
 13. [Installation & Setup](#13-installation--setup)
 14. [Environment Variables](#14-environment-variables)
-15. [Team Members & Contributions](#15-team-members--contributions)
 
 ---
 
