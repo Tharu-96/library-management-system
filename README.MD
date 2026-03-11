@@ -291,7 +291,11 @@ CREATE TABLE issued_book (
 
 -- Default librarian seed
 INSERT INTO librarian (name, email, password)
-VALUES ('Arun Neupane', 'arun123@gmail.com', 'arun123');
+VALUES ('Bipin', 'bipin123@gmail.com', 'bipin123');
+
+OR
+
+VALUES('Admin','admin@gmail.com','admin1234');
 ```
 
 ### 7.3 Entity-Relationship Diagram
